@@ -3,7 +3,8 @@ RUN pip install flask
 EXPOSE 8080
 USER root
 COPY . /prinquest
-RUN chown -R 1001 /prinquest
+RUN chgrp -R 0 /prinquest \
+    && chmod -R g=u /prinquest
 USER 1001
 WORKDIR /prinquest
 

@@ -1,4 +1,4 @@
-FROM python:3.6-alpine
+FROM docker.io/python:3.6-alpine
 RUN pip install flask
 EXPOSE 8080
 USER root

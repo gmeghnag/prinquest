@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: prinquest
+  name: prinquest
+spec:
+  selector:
+    matchLabels:
+      deployment: prinquest
+  strategy:
+  template:
+    metadata:
+      labels:
+        deployment: prinquest
+    spec:
+      containers:
+        - image: docker.io/gmh501/prinquest
+          imagePullPolicy: IfNotPresent
+          name: prinquest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
